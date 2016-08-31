@@ -1,8 +1,8 @@
-## Docker Notes
+## Docker Information
 ### What is it?
 Docker is a platform for developing, shipping, and deploying applications. It is meant to run applications isolated in their own *containers*.
 
-Docker containers are lightweight as they are not running a whole operating system like virtual machines, rather, they utilize the underlying host operating system.
+Docker containers are a lightweight solution to running applications. Instead of virtualizing hardware like virtual machines do, containers rest on top of the host's operating system and share as many resources as possible.
 
 The Docker daemon creates and manages Docker objects. These objects can be containers, images, networks, and more.
 
