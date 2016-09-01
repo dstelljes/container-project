@@ -1,0 +1,16 @@
+{
+  "name": "container-project-book",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dstelljes/container-project.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dstelljes/container-project/issues"
+  },
+  "homepage": "https://dstelljes.github.io/container-project/",
+  "devDependencies": {
+    "gitbook": "^3.2.0"
+  }
+}
