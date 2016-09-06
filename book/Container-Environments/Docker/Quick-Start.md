@@ -66,3 +66,49 @@ If you want to name your container, you can use the ```--name my-name``` flag. F
 $ docker run -i -t --name fedora-rocks fedora /bin/bash
 [root@a58980471b84 /]#
 ```
+
+### Listing Containers
+
+While your fedora container is running, open up another terminal. You can view your currently running containers by the following:
+```bash
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+6dc092fe3cc5        fedora              "/bin/bash"         11 seconds ago      Up 8 seconds                            my-fedora
+```
+
+You may be wondering, "great, I can see my running containers! How about my stopped or old containers?" You can view those by using the ```-a``` flag:
+
+```bash
+$ docker ps -a
+```
+
+### Starting / Stopping Containers
+Obviously, it is not useful to always have to keep a terminal open with your current container. You can start an already created container by passing its name to the start command:
+
+```bash
+$ docker start my-fedora
+```
+
+To run a command on a started container, use the ```docker exec``` command:
+
+```bash
+$ docker exec -i -t my-fedora /bin/bash
+[root@6dc092fe3cc5 /]#
+```
+
+This launches an interactive terminal with our container just as when we used the  ```docker run``` command earlier. When we exit this terminal, however, the container will not stop unlike when we ran it earlier.
+
+To stop the container, use the  ```docker stop``` command:
+
+```bash
+$ docker stop my-fedora
+my-fedora
+```
+
+You can now confirm that the container has stopped by listing the active containers:
+```bash
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+Congrats! You have successfully ran your first few docker containers.
