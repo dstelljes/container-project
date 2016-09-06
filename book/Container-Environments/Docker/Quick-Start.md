@@ -43,4 +43,26 @@ ______________
 ```
 
 ### Running more
-Obviously, containers can be used for much more than printing a whale saying "Hello World!"
+Obviously, containers can be used for much more than printing a whale saying "Hello World!"  This time, let's download the image before running it. We can use the ```docker pull``` command to do this.
+
+```bash
+$ docker pull fedora
+```
+
+This will download the latest version of the fedora image from Docker Hub. Let's spin up a fedora container with an interactive shell.
+
+```bash
+$ docker run -i -t fedora /bin/bash
+[root@a58980471b84 /]#
+```
+
+As you can see, you are now root within an instance of fedora. What exactly did we call there, though?
+* The ```-i``` flag starts an interactive container.
+* The ```-t``` flag creates a pseudo-TTY which attaches *stdin* and *stdout*.
+
+If you want to name your container, you can use the ```--name my-name``` flag. For example, spinning up a container titled *fedora-rocks*:
+
+```bash
+$ docker run -i -t --name fedora-rocks fedora /bin/bash
+[root@a58980471b84 /]#
+```
