@@ -115,8 +115,13 @@
   </tr>
 </table>
 
+## License
+
+All written content under [CC BY-SA][cc]. Supporting code and sample projects under [MIT][mit].
+
 [book-source]: https://github.com/dstelljes/container-project/tree/master/book
+[cc]: https://creativecommons.org/licenses/by-sa/4.0/
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dan]: https://github.com/dstelljes
+[mit]: https://opensource.org/licenses/MIT
 [shawn]: https://github.com/devshawn
-
