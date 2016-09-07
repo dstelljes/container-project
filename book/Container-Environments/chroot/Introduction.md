@@ -18,7 +18,7 @@ chroot is only a container environment in that it prevents the “jailed” proc
 
 *   chroot can't limit resource use (processor, memory, etc.).
 
-In short, chroot is fine for isolating programs but isn’t meant to run isolated systems. We’ll see, though, that [LXC](LXC.md) and other container environments build on chroot to provide that functionality.
+In short, chroot is fine for isolating programs but isn’t meant to run isolated systems. We’ll see, though, that [LXC](../LXC/Introduction.md) and other container environments build on chroot to provide that functionality.
 
 [arch-building-chroot]: https://wiki.archlinux.org/index.php/DeveloperWiki:Building_in_a_Clean_Chroot
 [arch-sftp-chroot]: https://wiki.archlinux.org/index.php/SFTP_chroot
