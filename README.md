@@ -1,4 +1,4 @@
-[Shawn][shawn] and [Dan][dan] are doing a directed study on [software containers][containers]. Here's the work:
+[Shawn Seymour][shawn] and [Dan Stelljes][dan] are doing a directed study on [software containers][containers]. Here's the work:
 
 <table>
   <tr>
