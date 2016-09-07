@@ -1,0 +1,6 @@
+{
+  "name": "container-project-book",
+  "dependencies": {
+    "gitbook-plugin-advanced-emoji": "^0.2.1"
+  }
+}
