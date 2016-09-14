@@ -1,4 +1,4 @@
-# Docker Quick Start
+# Docker
 
 Docker is a platform for developing, shipping, and deploying applications. It is meant to run applications isolated in their own *containers*.
 
