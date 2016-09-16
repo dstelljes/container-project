@@ -2,7 +2,7 @@
 
 ## Install Docker
 
-Before you can spin up your first Docker container, the Docker daemon has to be installed on the workstation you are using:
+Before you can spin up your first Docker container, Docker has to be installed on the workstation you are using:
 
 ```bash
 $ docker -v
@@ -10,6 +10,15 @@ Docker version 1.12.1, build 23cf638
 ```
 
 If you don’t have Docker installed, [the installation guide](https://docs.docker.com/engine/installation/) has instructions for most common operating systems.
+
+To create containers, the Docker daemon must be running. A quick way to check that is try to list containers -- it will give back an error if it is not running:
+
+```bash
+$ docker ps
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+```
+
+If you receive an error as shown above, the Docker daemon is not running and containers can not be created. The service will have to be started before you can continue. If you got an empty list, the daemon is running and we're ready to continue!
 
 ## Run `whalesay`
 
