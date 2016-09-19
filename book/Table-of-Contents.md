@@ -7,3 +7,4 @@
   * [Docker](Container-Environments/Docker/Introduction.md)
     * [Quick Start](Container-Environments/Docker/Quick-Start.md)
     * [Useful Commands](Container-Environments/Docker/Commands.md)
+    * [Creating Images](Container-Environments/Docker/Create-Images.md)
