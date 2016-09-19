@@ -2,7 +2,7 @@
 
 LXC (<b>L</b>inu<b>X</b> <b>C</b>ontainers) is a container environment designed to run isolated Linux systems on a shared kernel. Unlike [chroot](chroot.md), it creates a completely isolated environment with its own processor, memory, network interfaces, etc. Unlike [Docker containers](Docker/Introduction.md), which are designed to contain one application, LXC containers are intended to contain an entire system.
 
-Under the hood, LXC [orchestrates a bunch of Linux kernel features][lxc-intro]:
+Under the hood, LXC [is just a collection of helper utilities around some Linux kernel features][lxc-intro]:
 
 *   **[capabilities][capabilities]:** Provides granular control over privileged processes.
 

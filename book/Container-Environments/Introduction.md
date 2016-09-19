@@ -16,9 +16,9 @@ The need for isolated environments has been around for a long time, but software
 
 ## Operating System Containers vs. Application Containers
 
-Containers are primarily used for two purposes, user space isolation and application packaging. Operating system containers provide the former—in most cases, they function like complete virtual machines. Application containers provide the latter—they're responsible for one service and its immediate dependencies.
+Containers are primarily used for two purposes, user space isolation and application packaging. Operating system containers provide the former—in most cases, they function like complete virtual machines. Application containers provide the latter—they’re responsible for one service and its immediate dependencies.
 
-LXC and other technologies like OpenVZ and Solaris Containers are primarily used to create operating system containers. Like virtual machines, operating system containers are generally created from images that determine the initial state of the container (contents, settings, etc.).
+LXC and other technologies like OpenVZ and Solaris Containers are used to create operating system containers. Like virtual machines, operating system containers are generally created from images that determine the initial state of the container (contents, settings, etc.).
 
 Docker is designed to create application containers, and the underlying architecture is a little different. Rather than creating a container from a single image, Docker containers are layered. Each layer describes itself in terms of differences between it and its parent container. A container for a continuous integration server might be composed of the following layers:
 
