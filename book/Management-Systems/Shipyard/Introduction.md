@@ -1,0 +1,3 @@
+# Shipyard
+
+Shipyard is a container management system for Docker which is build on top of Docker Swarm. It is really nice due to the fact that it is a tool for managing a cluster of nodes or a computer lab and monitoring all containers and images being utilized on these nodes. This is usable for a computer lab as it is possible to see which containers are hogging up resources of the parent nodes as well as giving the ability to easily run commands on the containers, delete the containers, install new images onto all of the machines, and more. And, it provides a beautiful web interface to do this all from rather than hacking away at a terminal for hours.
