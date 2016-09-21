@@ -62,12 +62,16 @@ Run `lxc-attach` to get into the container:
     root@first-container:/#
 
 
-Notice that we now have a root shell inside the container. Let’s install `cowsay`:
+We now have a root shell inside the container. Install `cowsay` (and, for extra fun, `fortune`) and then exit the container:
 
     # apt-get -y install cowsay fortune
     ...
-    # PATH=$PATH:/usr/games
-    # fortune | cowsay
+    # exit
+
+Now that `cowsay` is installed, it can be run normally. Stop the container and try running `cowsay` as a one-off command:
+
+    $ sudo lxc-stop -n first-container
+    $ sudo lxc-start -F -n first-container -- bash -c '/usr/games/fortune | /usr/games/cowsay'
     ____________________________________
     / The last thing one knows in        \
     | constructing a work is what to put |
@@ -80,7 +84,6 @@ Notice that we now have a root shell inside the container. Let’s install `cows
               (__)\       )\/\
                   ||----w |
                   ||     ||
-
 
 [docker-quick-start]: ../Docker/Quick-Start.md
 [lc-images]: https://images.linuxcontainers.org/
