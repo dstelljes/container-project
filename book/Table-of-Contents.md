@@ -15,4 +15,4 @@
 * [Management Systems](Management-Systems/Introduction.md)
   * [Docker Swarm](Management-Systems/Swarm/Introduction.md)
   * [Shipyard](Management-Systems/Shipyard/Introduction.md)
-  * [Ranger](Management-Systems/Rancher/Introduction.md)
+  * [Rancher](Management-Systems/Rancher/Introduction.md)
