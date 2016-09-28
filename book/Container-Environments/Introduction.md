@@ -2,11 +2,13 @@
 
 The need for isolated environments has been around for a long time, but software containers recently gained popularity as a way to easily move applications from development into production without using full-fledged virtual machines. ([Vagrant][vagrant], a popular development tool, uses virtual machines to create local versions of production environments.) This chapter outlines a few available container environments and attempts to show the differences between them:
 
-| Container environment      | File system isolation      | Processor and memory limits | Disk limits                  | Nesting                     | Root privilege isolation    |
+| Container environment      | File system isolation      | Processor and memory limits | Disk limits                  | Host OS                     | Root privilege isolation    |
 |----------------------------|----------------------------|-----------------------------|------------------------------|-----------------------------|-----------------------------|
-| [chroot][chroot]           | :confused:                 | :cry:                       | :cry:                        | :smile:                     | :cry:                       |
-| [Docker][docker]           | :smile:                    | :smile:                     | :cry:                        | :smile:                     | :smile:                     |
-| [LXC][lxc]                 | :smile:                    | :smile:                     | :confused:                   | :smile:                     | :smile:                     |
+| [chroot][chroot]           | :confused:                 | :cry:                       | :cry:                        | Most Unixes                 | :cry:                       |
+| [Docker][docker]           | :smile:                    | :smile:                     | :cry:                        | Windows, macOS, Linux       | :smile:                     |
+| [LXC][lxc]                 | :smile:                    | :smile:                     | :confused:                   | Most Linux distributions    | :confused:                  |
+| [LXD][lxd]                 | :smile:                    | :smile:                     | :smile:                      | Ubuntu                      | :smile:                     |
+| [rkt][rkt]                 | :smile:                    | :smile:                     | :smile:                      | Most Linux distributions    | :smile:                     |
 
 :smile:    Fully supported  
 :confused: Partially supported  
@@ -48,5 +50,7 @@ It’s worth noting that the Docker daemon, regardless of whether it’s hosting
 [environment-comparison]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization#Implementations
 [lxc]: LXC/Introduction.md
 [lxc-getting-started]: https://linuxcontainers.org/lxc/getting-started/
+[lxd]: LXD/Introduction.md
+[rkt]: rkt/Introduction.md
 [uid]: https://en.wikipedia.org/wiki/User_identifier
 [vagrant]: https://www.vagrantup.com/
