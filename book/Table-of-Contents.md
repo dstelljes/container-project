@@ -15,6 +15,7 @@
     * [Quick Start](Container-Environments/LXD/Quick-Start.md)
   * [rkt](Container-Environments/rkt/Introduction.md)
 * [Distribution](Distribution/Introduction.md)
+  * [Stacks](Distribution/Stacks.md)
   * [Clusters](Distribution/Clusters.md)
 * [Management Systems](Management-Systems/Introduction.md)
   * [Docker Swarm](Management-Systems/Swarm/Introduction.md)
