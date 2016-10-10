@@ -61,11 +61,13 @@ Let's spin up our application again, this time linking our containers:
 $ docker run -it -p 61000:3000 --link redis1:redis voting-app
 ```
 
-We get no errors this time. If we visit [http://localhost:61000](http://localhost:61000), we can now see everything is working properly. This, however, would be very hard to setup if we had more than two things in our stack. The proper way to do this is to use Docker compose.
+We get no errors this time. If we visit [http://localhost:61000](http://localhost:61000), we can now see everything is working properly. This, however, would be very hard to setup if we had more than two things in our stack. The proper way to do this is to use Docker Compose.
 
 ### Docker Compose
 
-Let's utilize Docker compose to do this so we can do this all in one step. We start by making a `docker-compose.yml` file:
+Docker Compose is a tool to define and run multi-container Docker applications. This allows us to run a single command and have our whole stack statup and shutdown at once.
+
+Let's utilize Docker Compose to do this so we can do this all in one step. We start by making a `docker-compose.yml` file:
 
 ```
 version: '2'
@@ -81,7 +83,7 @@ services:
 ```
 
 This file is doing a few things for us:
-* Using version 2 of Docker compose
+* Using version 2 of Docker Compose
 * Creates two services: the _voting-app_ service and the _redis_ service
 * Builds the voting-app image from the Dockerfile in the current directory
 * Forwards port 3000 on the container to 61000 on the host machine
@@ -95,7 +97,7 @@ $ docker-compose up
 
 A lot of things will happen, and then your stack is running! Visit [http://localhost:61000](http://localhost:61000) to confirm. You can run it with the `-d` flag to run it in the background.
 
-Docker compose makes it very simple to link services together and create a container stack. 
+Docker Compose makes it very simple to link services together and create a container stack.
 
 
 
