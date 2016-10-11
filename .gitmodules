@@ -1,0 +1,6 @@
+[submodule "docker-compose-example"]
+	path = docker-compose-example
+	url = https://github.com/devshawn/docker-compose-example.git
+[submodule "dungeon-trac"]
+	path = dungeon-trac
+	url = https://github.com/devshawn/dungeon-trac.git
