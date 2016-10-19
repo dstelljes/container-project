@@ -22,4 +22,5 @@
   * [Shipyard](Management-Systems/Shipyard/Introduction.md)
   * [Rancher](Management-Systems/Rancher/Introduction.md)
 * [Usages](Usages/Introduction.md)
+  * [Testing](Usages/Testing.md)
 * [About This Book](About.md)
