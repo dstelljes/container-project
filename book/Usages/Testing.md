@@ -47,3 +47,5 @@ $ docker run -t unit-test-example
 This will spin up a container and output the karma unit test results. The `-t` run flag is to attach a pseudo-terminal so we can see the output.
 
 Now, if you updated your application code you would have to rebuild the image and run a new container. We'll show later how to have an image that will have the latest code every time you create a container.
+
+[repo]: https://github.com/devshawn/running-tests-in-docker
