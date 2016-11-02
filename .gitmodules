@@ -4,3 +4,9 @@
 [submodule "dungeon-trac"]
 	path = dungeon-trac
 	url = https://github.com/devshawn/dungeon-trac.git
+[submodule "ldap-docker-load-balancer"]
+	path = ldap-docker-load-balancer
+	url = https://github.com/devshawn/ldap-docker-load-balancer.git
+[submodule "running-tests-in-docker"]
+	path = running-tests-in-docker
+	url = https://github.com/devshawn/running-tests-in-docker.git
