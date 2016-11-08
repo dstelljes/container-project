@@ -1,4 +1,4 @@
-# Testing within containers
+# Web Application Testing
 
 Testing is an essential part of the development process. Unit tests and functional (end-to-end) tests should be run on every build. If you're developing within a container, tests should be able to be run as its own container as well.
 
