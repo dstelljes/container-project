@@ -8,12 +8,17 @@ The break bulk system worked for most of the history of shipping, but it was far
 
 Software containers do for application deployment what shipping containers do for freight. Instead of relying on complicated scripts to prepare the deployment environment, software developers can pack configuration and dependencies into a container and be assured that the application will run correctly.
 
-## Virtualization
+## About this book
 
-To understand the benefits of containers, it helps to know a little bit about virtualization. Virtualization, as the name implies, refers to the use of virtual resources (memory, disk, etc.). Any reasonably designed system depends on virtualization. For instance, when a text editor writes to a file, it should be able to do so without any knowledge of the underlying storage device. Similarly, a web browser should be able to request a page without worrying about the underlying network interfaces or low-level protocols.
+This book is an ongoing project by [Shawn Seymour][shawn] and [Dan Stelljes][dan] that began as part of a semester-long directed study on software containers at the University of Minnesota, Morris. This book is meant to store information we have learned about containers, examples on how to use container systems and their features, and contain a general guide on when and where to utilize containers. The GitHub repository containing this book and other relevant materials to our findings can be [found here][repo].
 
-**Hardware virtualization** virtualizes a complete machine, allowing a complete operating system to run as a guest on top of the host operating system. The primary advantage of a virtual machine is that it separates a system from the hardware that it runs on, which is especially useful when running servers. If a virtual machine fails, the host can quickly restore a **snapshot** of the system (its settings and the state of any of its storage devices at a moment in time) or simply throw it out and start over from a clean images. If the host hardware fails or needs to be upgraded, its virtual machines can easily be transferred to another host.
+## License
 
-Containers are an application of **operating system virtualization**. Containers act like virtual machines, but they share the host’s kernel. Sharing a kernel is more efficient (no overhead is incurred from booting and running another complete operating system), but less flexible (the guest operating system has to match the host). Containers are most frequently used to create isolated environments for applications and simplify the deployment process.
+All written content under [CC BY-SA][cc]. Supporting code and sample projects under [MIT][mit].
 
+[cc]: https://creativecommons.org/licenses/by-sa/4.0/
 [intermodal-containers]: https://en.wikipedia.org/wiki/Intermodal_container
+[mit]: https://opensource.org/licenses/MIT
+[repo]: https://github.com/dstelljes/container-project
+[dan]: https://github.com/dstelljes
+[shawn]: https://github.com/devshawn
