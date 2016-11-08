@@ -10,7 +10,15 @@ Software containers do for application deployment what shipping containers do fo
 
 ## About this book
 
-This book is an ongoing project by [Shawn Seymour][shawn] and [Dan Stelljes][dan] that began as part of a semester-long directed study on software containers at the University of Minnesota, Morris. This book is meant to store information we have learned about containers, examples on how to use container systems and their features, and contain a general guide on when and where to utilize containers. The GitHub repository containing this book and other relevant materials to our findings can be [found here][repo].
+This book is an ongoing project by [Shawn Seymour][shawn] and [Dan Stelljes][dan] that began as part of a semester-long directed study on software containers at the University of Minnesota Morris. The book aims to achieve the following goals:
+
+*   Provide a comprehensive record of what we learned over the course of the semester.
+
+*   Offer general guidance on different pieces of container software and examples of common use cases.
+
+*   Demonstrate some real-world applications of containerization for use at Morris and elsewhere.
+
+The GitHub repository containing this book and other relevant materials can be found [here][repo].
 
 ## License
 
