@@ -1,0 +1,20 @@
+\documentclass[xcolor=dvipsnames,aspectratio=1610]{beamer}
+\usetheme[numbering=counter, progressbar=frametitle, sectionpage=none]{metropolis}
+\title{Software Containers}
+\date{December 5, 2016}
+\author{Shawn Seymour, Dan Stelljes}
+\setbeamercolor{title separator}{fg=Cyan!60}
+\setbeamercolor{progress bar}{fg=NavyBlue}
+\setbeamercolor{frametitle}{fg=Black,bg=Cyan!60}
+
+
+\begin{document}
+  \maketitle
+  \begin{frame}{Virtualization vs. Containers}
+      Hardware virtualization virtualizes a complete machine such that a full operating system is running as a guest on top of a host operating system. \newline
+
+      Containers are an application of operating system virtualization in which isolated user spaces are created on top of the same operating system and thus share the kernel. \newline
+
+      Containers are used as a lightweight alternative to virtual machines and are very useful when deploying and running applications in clustered environments.
+  \end{frame}
+\end{document}
