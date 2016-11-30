@@ -1,0 +1,31 @@
+\chapter*{Paula Deen's Thanksgiving}
+
+\begin{quoting}
+  Turducken is a dish consisting of a deboned chicken stuffed into a deboned duck, further stuffed into a deboned turkey. Outside of the United States and Canada, it is known as a three bird roast. Gooducken is a traditional English variant, replacing turkey with goose.
+
+  \begin{flushright}
+    --- Wikipedia, \textit{Turducken}
+  \end{flushright}
+\end{quoting}
+
+\vspace{2em}
+
+As we discussed briefly in the presentation, there two main types of containers: \textit{system containers}, which act like complete isolated operating systems, and \textit{application containers}, which focus on packaging single applications.
+
+LXD is a container engine that manages system containers. Working with an LXD container is a lot like working with a virtual machine (or, for that matter, a physical one) in that it acts like a completely isolated guest operating system.
+
+Docker, by contrast, manages application containers that are designed to be stateless and easily recreated. If a Docker container gets sick, it can be swiftly Old Yeller'd (spoiler, sorry) and a new container can be created to take its place.
+
+\section*{The challenge}
+
+As it turns out, Docker can run inside of LXD. There are some actual reasons why this kind of thing is useful, but for now we'll just observe that it's awesome and move on. In this exercise, you'll create a container Turducken, stuffing one container engine inside another. More butter, y'all!
+
+\section*{Getting started}
+
+The only thing you'll need for this exercise is a machine with LXD on it. If you're using a personal machine and want to install it, that's cool. If you don't have a personal machine or do have an aversion to installing things, you can use LXD online:
+
+\begin{enumerate}
+  \item Point a web browser at \url{https://linuxcontainers.org/lxd/try-it/}.
+  \item Acknowledge that you can't/won't do anything terrible.
+  \item Observe that you're now root inside your very own LXD-enabled system. (Fun fact: the thing you're about to use LXD inside of is itself an LXD container, which is running on a virtual machine.)
+\end{enumerate}
