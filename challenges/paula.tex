@@ -18,14 +18,30 @@ Docker, by contrast, manages application containers that are designed to be stat
 
 \section*{The challenge}
 
-As it turns out, Docker can run inside of LXD. There are some actual reasons why this kind of thing is useful, but for now we'll just observe that it's awesome and move on. In this exercise, you'll create a container Turducken, stuffing one container engine inside another. More butter, y'all!
+As it turns out, Docker will inside of LXD. There are some actual reasons why this kind of thing is useful, but for now we'll just observe that it's awesome and move on. In this exercise, you'll create a container Turducken, stuffing one container engine inside another. More butter, y'all!
 
 \section*{Getting started}
 
-The only thing you'll need for this exercise is a machine with LXD on it. If you're using a personal machine and want to install it, that's cool. If you don't have a personal machine or do have an aversion to installing things, you can use LXD online:
+The only thing you'll need for this exercise is a machine with LXD on it. Installing LXD is sort of a pain (slightly less so if you're using Ubuntu or Gentoo), but you can use LXD online:
 
 \begin{enumerate}
   \item Point a web browser at \url{https://linuxcontainers.org/lxd/try-it/}.
   \item Acknowledge that you can't/won't do anything terrible.
-  \item Observe that you're now root inside your very own LXD-enabled system. (Fun fact: the thing you're about to use LXD inside of is itself an LXD container, which is running on a virtual machine.)
+  \item Observe that you're now root inside your very own LXD-enabled system.
 \end{enumerate}
+
+Fun fact: The ``try it online'' system is actually an LXD container running on top of a virtual machine. We're already a few levels deep!
+
+\section*{Duck, meet turkey}
+
+Start out by launching a new system container:
+
+\begin{verbatim}
+    # lxc launch ubuntu:16.04 first-container -p default -p docker
+\end{verbatim}
+
+There are a few things going on here. First, \texttt{lxc}---what's up with that? LXD is actually just a friendly interface to an older container management tool called LXC, and the name of the command reflects that. Pass judgment as you will.
+
+\texttt{launch} does exactly what you'd think; it launches a container. In this case, you're launching a container based on the \texttt{ubuntu:16.04} (Ubuntu 16.04) image, and you're naming it \texttt{first-container}.
+
+The \texttt{-p} options apply \textit{profiles} to the container. \texttt{-p default} sets up some networking configuration and \texttt{-p docker} makes it possible for nesting to happen.
