@@ -6,15 +6,37 @@
 \setbeamercolor{title separator}{fg=Cyan!60}
 \setbeamercolor{progress bar}{fg=NavyBlue}
 \setbeamercolor{frametitle}{fg=Black,bg=Cyan!60}
+\setbeamercolor{alerted text}{fg=BurntOrange}
 
 
 \begin{document}
   \maketitle
   \begin{frame}{Virtualization vs. Containers}
-      Hardware virtualization virtualizes a complete machine such that a full operating system is running as a guest on top of a host operating system. \newline
+      Hardware virtualization virtualizes a complete machine such that a full operating system is running as a guest on top of a host operating system. They can be several gigabytes in size and can take awhile to start up.\newline
 
-      Containers are an application of operating system virtualization in which isolated user spaces are created on top of the same operating system and thus share the kernel. \newline
+      Containers are an application of operating system virtualization in which isolated user spaces are created on top of the same operating system and thus share the kernel. These can be tens of megabytes and start up instantly.\newline
 
       Containers are used as a lightweight alternative to virtual machines and are very useful when deploying and running applications in clustered environments.
+  \end{frame}
+
+  \begin{frame}{Container Applications}
+    So why containers?
+
+    \begin{itemize}
+        \item They can easily be spun up, worked with, destroyed, re-created, and built upon.
+        \item Containers provide isolation; for example, in a web stack, the server and database can be hosted on the same machine but isolated in their own containers.
+        \item It is very easy to scale applications over multiple containers as well as multiple hosts in a cluster setup.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Container Environments}
+    There are many container environments to choose from:
+
+    \begin{itemize}
+        \item \alert{LXC} (\textbf{L}inu\textbf{X} \textbf{C}ontainers): Designed to run isolated Linux systems on a shared kernel. Made to contain an entire system. Been around over eight years.
+        \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Currently the most common container environment.
+        \item \alert{LXD}: An easier way to run LXC containers. Provides a simpler, better interface around the low-level tools provided by LXC.
+        \item \alert{rkt}: The newest, cutting-edge container environment. Designed to address security issues with Docker and to standardize specifications for application containers.
+    \end{itemize}
   \end{frame}
 \end{document}
