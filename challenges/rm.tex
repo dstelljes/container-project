@@ -1,0 +1,101 @@
+\chapter*{Dies Irae}
+
+\begin{quoting}
+  Ah! what terror shall be shaping\newline
+  When the Judge the truth's undraping---\newline
+  Cats from every bag escaping!
+
+  \begin{flushright}
+    --- Ambrose Bierce, \textit{Shapes of Clay}
+  \end{flushright}
+\end{quoting}
+
+\vspace{2em}
+
+\section*{The challenge}
+
+Destroy everything.
+
+\section*{Getting started}
+
+The only thing you'll need for this exercise is a machine with the LXD container engine on it. Installing LXD is sort of a pain (slightly less so if you're using Ubuntu or Gentoo), but you can try it out online:
+
+\begin{enumerate}
+  \item Point a web browser at \url{https://linuxcontainers.org/lxd/try-it/}.
+  \item Acknowledge the terms.
+  \item Observe that you're now root inside your very own LXD-enabled system.
+\end{enumerate}
+
+\section*{Creating containers}
+
+Enter the following command into the shell:
+
+\begin{verbatim}
+    # lxc launch ubuntu adios-amigos
+\end{verbatim}
+
+A couple of things to note here: First, \texttt{lxc}---what's up with that? LXD is actually just a friendly interface to an older container management tool called LXC, and the name of the command reflects that. Pass judgment as you will.
+
+\texttt{launch} does exactly what you'd think; it launches a container. In this case, you're launching a container based on the \texttt{ubuntu} (Ubuntu Linux) image, and you're naming it \texttt{adios-amigos}.
+
+Notice that it takes awhile to pull down the \texttt{ubuntu} image. That only has to happen once. If you were to launch another container based on that image, it would happen almost instantly.
+
+Check out a list of currently running containers and you'll see \texttt{adios-amigos} purring away:
+
+\begin{verbatim}
+    # lxc list
+    +--------------+---------+
+    |     NAME     |  STATE  |
+    +--------------+---------+
+    | adios-amigos | RUNNING |
+    +--------------+---------+
+\end{verbatim}
+
+\section*{Wrecking containers}
+
+To open a console inside of the container, use \texttt{lxc exec}:
+
+\begin{verbatim}
+    # lxc exec adios-amigos -- bash
+\end{verbatim}
+
+If that worked, you'll see that your prompt has changed to \texttt{root@adios-amigos}. You're in the container! Now, do some damage:
+
+\begin{verbatim}
+    # rm -rf --no-preserve-root /
+\end{verbatim}
+
+\texttt{rm} will spit out a pretty impressive list of stuff it can't delete, but everything else in the container will be destroyed. Try running \texttt{rm} again:
+
+\begin{verbatim}
+    # rm
+    bash: /bin/rm: No such file or directory
+\end{verbatim}
+
+At this point, you don't have a whole lot of options other than leaving the container:
+
+\begin{verbatim}
+    # exit
+\end{verbatim}
+
+And, because everything is gone, you can't actually get back in:
+
+\begin{verbatim}
+    # lxc exec adios-amigos -- bash
+\end{verbatim}
+
+This time, your prompt doesn't change---\texttt{bash} was deleted.
+
+\section*{Wrecking containers \textit{safely}}
+
+LXD allows you to take \textit{snapshots} of running containers, so it's possible to do all sorts of destructive stuff without any long-term consequences. If you had taken a snapshot prior to destroying everything\ldots
+
+\begin{verbatim}
+    # lxc snapshot adios-amigos emergency-parachute
+\end{verbatim}
+
+\ldots you would have been able to restore the container to a working state:
+
+\begin{verbatim}
+    # lxc restore adios-amigos emergency-parachute
+\end{verbatim}
