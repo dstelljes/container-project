@@ -1,6 +1,10 @@
 \documentclass[xcolor=dvipsnames,aspectratio=1610]{beamer}
+\usepackage{graphicx}
 \usetheme[numbering=counter, progressbar=frametitle, sectionpage=none]{metropolis}
-\title{Software Containers}
+\title{Software Containers\ \
+\includegraphics[scale=0.1]{whale.png}
+\ \includegraphics[scale=0.15]{octopus.png}
+\ \includegraphics[scale=0.1]{whale.png}}
 \date{December 5, 2016}
 \author{Shawn Seymour, Dan Stelljes}
 \setbeamercolor{title separator}{fg=Cyan!60}
@@ -61,7 +65,7 @@
       The following systems are meant to host single applications: \newline
       \begin{itemize}
           \setlength\itemsep{1.6em}
-          \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Currently the most common container environment. Easy to setup and use.
+          \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Easy to setup and use. Currently the most common container environment.
           \item \alert{rkt}: The newest, cutting-edge container environment. Designed to address security issues with Docker and to standardize specifications for application containers.
       \end{itemize}
   \end{frame}
