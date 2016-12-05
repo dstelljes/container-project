@@ -48,11 +48,22 @@
     \end{itemize}
 
     \vspace{10px}
+  \end{frame}
 
-    Containers are typically used in one of two ways: to act as a full operating system or to run a single application. There are container environments made for each philosophy.
+  \begin{frame}{Making Containers}
+      A few terms that need to be defined:
+    \begin{itemize}
+        \item \alert{Images}: These are read-only templates that define and structure containers. These are used when creating a container. An example image could be a Fedora operating system running a Node.js application.
+        \item \alert{Registries}: These are public or private repositories that allow storage and distrubution of container images.
+    \end{itemize}
+
+    Images store information in layers and build upon each other. For example, an image of a Node server may be based off of a Fedora image. You could then create an image based off of that Node server, which would add another layer.
+
   \end{frame}
 
   \begin{frame}{Container Environments: For Systems}
+      Containers are typically used in one of two ways: to act as a full operating system or to run a single application. There are container environments made for each philosophy. \newline
+
       The following systems are meant to be used as a whole operating system: \newline
       \begin{itemize}
           \setlength\itemsep{1.6em}
