@@ -11,13 +11,28 @@
 
 \begin{document}
   \maketitle
-  \begin{frame}{Virtualization vs. Containers}
-      Hardware virtualization virtualizes a complete machine such that a full operating system is running as a guest on top of a host operating system. They can be several gigabytes in size and can take awhile to start up.\newline
+  \begin{frame}{Virtual Machines vs. Containers}
+      \alert{Virtual machines} act as hardware virtualization and run a full operating system as a guest.
+      \begin{itemize}
+          \item Can be several gigabytes in size and take awhile to start up.
+      \end{itemize}
+      \vspace{10px}
 
-      Containers are an application of operating system virtualization in which isolated user spaces are created on top of the same operating system and thus share the kernel. These can be tens of megabytes and start up instantly.\newline
+      \alert{Containers} act as operating system virtualization where they share the kernel of the host machine.
+      \begin{itemize}
+          \item Can be tens of megabytes and start up instantly.
+      \end{itemize}
 
-      Containers are used as a lightweight alternative to virtual machines and are very useful when deploying and running applications in clustered environments.
   \end{frame}
+
+  \begin{frame}{Virtual Machines vs. Containers}
+      \begin{figure}
+        \includegraphics[scale=0.5]{container_vs_vm.jpg}
+      \end{figure}
+      Containers are used as a lightweight alternative to virtual machines and are very useful when deploying and running applications in clustered environments.
+
+    \end{frame}
+
 
   \begin{frame}{Container Applications}
     So why containers?
@@ -41,7 +56,7 @@
   \end{frame}
 
   \begin{frame}{Lab Suggestions}
-    We did some cool things and proposed some ideas for the lab:
+    We did some cool things and proposed some ideas for the labs:
 
     \begin{itemize}
         \item \alert{Lab Services}:
@@ -57,4 +72,38 @@
         \end{itemize}
     \end{itemize}
   \end{frame}
+
+  \begin{frame}{Container Demos}
+      We have a few demos of different software container applications to play around with: \newline
+      \begin{itemize}
+        \setlength\itemsep{1.6em}
+        \item Dies Irae: Blow up the world challenge; example of LXD containers
+        \item Paula Deen's Thanksgiving: Nesting Docker inside of LXD
+        \item Down The Pipeline: Manipulating images by Docker and Rancher
+      \end{itemize}
+
+  \end{frame}
+
+  \begin{frame}{Appendix B: Kyle Hakala or Seth Meyers?}
+
+      \begin{figure}
+      \centering
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{kyle.png}
+      \end{minipage}%
+      \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{seth.jpg}
+      \end{minipage}
+      \end{figure}
+
+  \end{frame}
+
+  \begin{frame}{Appendix B}
+      \begin{figure}
+        \includegraphics[scale=0.6]{cactus.png}
+      \end{figure}
+  \end{frame}
+
 \end{document}
