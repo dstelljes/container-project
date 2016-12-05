@@ -34,7 +34,7 @@
     \end{frame}
 
 
-  \begin{frame}{Container Applications}
+  \begin{frame}{Applications of Containers}
     So why containers?
 
     \begin{itemize}
@@ -42,17 +42,28 @@
         \item Containers provide isolation; for example, in a web stack, the server and database can be hosted on the same machine but isolated in their own containers.
         \item It is very easy to scale applications over multiple containers as well as multiple hosts in a cluster setup.
     \end{itemize}
+
+    \vspace{10px}
+
+    Containers are typically used in one of two ways: to act as a full operating system or to run a single application. There are container environments made for each philosophy.
   \end{frame}
 
-  \begin{frame}{Container Environments}
-    There are many container environments to choose from:
+  \begin{frame}{Container Environments: For Systems}
+      The following systems are meant to be used as a whole operating system: \newline
+      \begin{itemize}
+          \setlength\itemsep{1.6em}
+          \item \alert{LXC} (\textbf{L}inu\textbf{X} \textbf{C}ontainers): One of the original container environments. Low-level, bare-bones container engine. Over eight years old.
+          \item \alert{LXD}: An easier way to run LXC containers. Provides a wrapper over the low-level LXC interface.
+      \end{itemize}
+  \end{frame}
 
-    \begin{itemize}
-        \item \alert{LXC} (\textbf{L}inu\textbf{X} \textbf{C}ontainers): Designed to run isolated Linux systems on a shared kernel. Made to contain an entire system. Been around over eight years.
-        \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Currently the most common container environment.
-        \item \alert{LXD}: An easier way to run LXC containers. Provides a simpler, better interface around the low-level tools provided by LXC.
-        \item \alert{rkt}: The newest, cutting-edge container environment. Designed to address security issues with Docker and to standardize specifications for application containers.
-    \end{itemize}
+  \begin{frame}{Container Environments: For Applications}
+      The following systems are meant to host single applications: \newline
+      \begin{itemize}
+          \setlength\itemsep{1.6em}
+          \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Currently the most common container environment. Easy to setup and use.
+          \item \alert{rkt}: The newest, cutting-edge container environment. Designed to address security issues with Docker and to standardize specifications for application containers.
+      \end{itemize}
   \end{frame}
 
   \begin{frame}{Lab Suggestions}
@@ -77,14 +88,14 @@
       We have a few demos of different software container applications to play around with: \newline
       \begin{itemize}
         \setlength\itemsep{1.6em}
-        \item Dies Irae: Blow up the world challenge; example of LXD containers
-        \item Paula Deen's Thanksgiving: Nesting Docker inside of LXD
-        \item Down The Pipeline: Manipulating images by Docker and Rancher
+        \item Dies Irae: Blow up the world challenge; example of LXD containers.
+        \item Paula Deen's Thanksgiving: Nesting Docker inside of LXD.
+        \item Down The Pipeline: Manipulating images by Docker and Rancher.
       \end{itemize}
 
   \end{frame}
 
-  \begin{frame}{Appendix B: Kyle Hakala or Seth Meyers?}
+  \begin{frame}{Appendix A: Kyle Hakala or Seth Meyers?}
 
       \begin{figure}
       \centering
