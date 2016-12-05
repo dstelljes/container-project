@@ -71,21 +71,27 @@
   \end{frame}
 
   \begin{frame}{Lab Suggestions}
-    We did some cool things and proposed some ideas for the labs:
+      We did some cool things and proposed some ideas for the dungeon:
+      \begin{itemize}
+          \item \alert{Trac}, the lab's issue management system, can be hosted in a container rather than a virtual machine.
+          \item \alert{Puppet}, the lab's configuration management tool, can also be hosted in a container.
+          \item \alert{LDAP}, the lab's authentication manager, can be hosted in a single or multiple container setup. This allows for load balancing and faster logins.
+          \item \alert{Distributed Research} could benefit from running research applications inside of containers across the cluster of lab machines.
+      \end{itemize}
+  \end{frame}
 
-    \begin{itemize}
-        \item \alert{Lab Services}:
-        \begin{itemize}
-            \item Trac / Puppet can be hosted in containers on a physical machine.
-            \item LDAP can be hosted with container(s) with a possible load balancer.
-        \end{itemize}
+  \begin{frame}{Course Suggestions}
+      Containers could be beneficial in multiple courses at UMM:
+      \begin{itemize}
+          \item \alert{Computing Systems: Practicum} (3403) could use LXD containers to blow up the world and mess around with networking without exposing the dungeon to the outside.
+          \item \alert{Software Design} (3601) could use Docker containers for deployment of their web server and database. This allows for a live, isolated production environment.
+      \end{itemize}
+  \end{frame}
 
-        \item \alert{Course Usages}:
-        \begin{itemize}
-            \item Computing Systems: Practicum (3403) could use LXD containers to blow up the world.
-            \item Software Design (3601) could use Docker containers for deployment of their web server and database.
-        \end{itemize}
-    \end{itemize}
+  \begin{frame}{Suggestions on the Setup}
+      \begin{figure}
+        \includegraphics[scale=0.41]{proposal.png}
+      \end{figure}
   \end{frame}
 
   \begin{frame}{Container Demos}
