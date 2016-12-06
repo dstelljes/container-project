@@ -65,7 +65,7 @@ If that worked, you'll see that your prompt has changed to \texttt{root@adios-am
     # rm -rf --no-preserve-root /
 \end{verbatim}
 
-\texttt{rm} will spit out a pretty impressive list of stuff it can't delete, but everything else in the container will be destroyed. Try running \texttt{rm} again:
+\texttt{rm} will spit out a pretty impressive list of stuff that it can't delete, but everything else in the container will be destroyed. Try running \texttt{rm} again:
 
 \begin{verbatim}
     # rm
@@ -86,7 +86,7 @@ And, because everything is gone, you can't actually get back in:
 
 This time, your prompt doesn't change---\texttt{bash} was deleted.
 
-\section*{Wrecking containers \textit{safely}}
+\section*{Reversing the apocalypse}
 
 LXD allows you to take \textit{snapshots} of running containers, so it's possible to do all sorts of destructive stuff without any long-term consequences. If you had taken a snapshot prior to destroying everything\ldots
 
@@ -99,3 +99,5 @@ LXD allows you to take \textit{snapshots} of running containers, so it's possibl
 \begin{verbatim}
     # lxc restore adios-amigos emergency-parachute
 \end{verbatim}
+
+For more on snapshots, check out this fairly long blog post from St\'{e}phane Graber, the LXD technical lead: \url{https://insights.ubuntu.com/2016/03/22/lxd-2-0-your-first-lxd-container/}

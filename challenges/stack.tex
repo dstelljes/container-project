@@ -1,0 +1,43 @@
+\chapter*{Stack Trace}
+
+Containers are frequently linked together to make larger applications. For instance, a container that acts as a web server for some application might be linked to a container that provides a database.
+
+\section*{The challenge}
+
+Run a WordPress blog with the server in one container and the database in another.
+
+\section*{Getting started}
+
+For this challenge, you'll use Rancher, which is a web management tool for Docker. You can find Rancher at \url{http://rancher.stellj.es}---sign in with your U of M GitHub account and then ask Shawn or Dan to add you to the Default environment.
+
+\section*{Creating the stack}
+
+Once you're in, head over to the \textbf{User Stacks} page. Click \textbf{Add Stack}, and name it something like \textbf{yourname-wordpress-demo}.
+
+You'll need two services, one for the database and one for the web server. Let's start with the database.
+
+Click \textbf{Add Service}. For the name, enter \textbf{db}, and for the image, enter \textbf{mysql:5.7}. Add these four environment variables in the \textbf{Environment Variables} section near the bottom:
+
+\begin{verbatim}
+    MYSQL_ROOT_PASSWORD=wordpress
+    MYSQL_DATABASE=wordpress
+    MYSQL_USER=wordpress
+    MYSQL_PASSWORD=wordpress
+\end{verbatim}
+
+Finally, click \textbf{Create}.
+
+Next, create a service for the web server. Click \textbf{Add Service}. Use \textbf{wordpress} for the name and \textbf{wordpress} for the image. In the port mapping, map an external port of your choice (such as \textbf{1234}) to the container's port \textbf{80}.
+
+Set these two environment variables:
+
+\begin{verbatim}
+    WORDPRESS_DB_HOST=db:3306
+    WORDPRESS_DB_PASSWORD=wordpress
+\end{verbatim}
+
+Now, link the two containers. Under \textbf{Service Links}, select the \textbf{db} service inside of your stack on the left and type \textbf{db} as its name on the right. This is so the two containers can talk to each other.
+
+Lastly, we need to make sure this service spins up a container on the load balancer and thus is public. Click on the \textbf{Scheduling} tab. Select {Run all containers on a specific host} and select \textbf{load-balancer} from the dropdown. Finally, click \textbf{Create}.
+
+Once Rancher finishes bringing up the stack, you should be able to see the WordPress installation at \url{http://demo.stellj.es:1234} (or whatever port you chose).

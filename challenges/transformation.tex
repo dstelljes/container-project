@@ -1,0 +1,59 @@
+\chapter*{Pipe Dream}
+
+Containers are frequently linked together to make larger applications. For instance, a container that acts as a web server for some application might be linked to a container that provides a database.
+
+\section*{The challenge}
+
+Given an image of a container that performs a single operation on some image (rotating, inverting, etc.), create a pipeline that can do more complex transformations.
+
+\section*{Getting started}
+
+For this challenge, you'll use Rancher, which is a web management tool for Docker. You can find Rancher at \url{http://rancher.stellj.es}---sign in with your U of M GitHub account and then ask Shawn or Dan to add you to the Default environment.
+
+\section*{Starting a stack}
+
+Make sure you are in the Default environment. You should see a page called User Stacks. If you don't, click \textbf{Stacks} at the top of the page. Stacks are collections of containers that depend on each other. You'll be defining a stack of services in which each container will perform a single image manipulation.
+
+To start out, let's create a small image manipulation stack that rotates an image 180 degrees clockwise and inverts its color. To start, click \textbf{Add Stack}. Name your stack something that won't conflict with other people (like \texttt{yourname-image-demo}) and hit \textbf{Create}.
+
+\section*{Defining services}
+
+Now, start chaining together containers to get the correct result.
+
+\subsection*{Identity}
+
+First, create a service that simply returns the original image. This is more of a convention than anything else---if no transformation is specified, the server will assume that it's the end of the chain.
+
+To do this, click \textbf{Add Service}. In the \textbf{Name} field, enter \textbf{identity}, and in the \textbf{Select Image} field, enter \textbf{devshawn/node-image-manipulator}. Nothing else is needed, so click \textbf{Create}.
+
+\subsection*{Invert}
+
+Now, add a service to invert the colors of the image. Click \textbf{Add Service}. In the \textbf{Name} field, enter \textbf{invert}. Make sure the image is still set to \textbf{devshawn/node-image-manipulator} (Rancher helpfully remembers the last image you used).
+
+Tell the server that it should invert the image by setting an environment variable. Click the \textbf{Add Environment Variable} button near the bottom of the page. Enter \textbf{IMAGE\_MODE} as the variable name and \textbf{INVERT} as its value.
+
+This service has to be linked to the identity service: Scroll back up and look for the \textbf{Service Links} button. Click it, and select \textbf{identity} in the \textbf{Select a service...} dropdown. On the right side, set its name to \textbf{next}. Again, this is a convention---the server assumes that the next server in the chain will be named \textbf{next}. Click \textbf{Create}.
+
+\subsection*{Rotate}
+
+Finally, add a service to rotate the image. As the last in the chain, this is the service that will be open to the public. Click \textbf{Add Service} again, name the service \textbf{rotate}, and make sure that the image is still \textbf{devshawn/node-image-manipulator}.
+
+As before, create the \textbf{IMAGE\_MODE} environment variable and set it to \textbf{ROTATE}. The rotate mode will look for another environment variable that specifies how many degrees to rotate; create another environment variable called \textbf{IMAGE\_SETTING\_1} and set it to \textbf{180}.
+
+Now, link this service to the invert service. Head back up to \textbf{Service Links}, select \textbf{invert} from the dropdown, and set its name as \textbf{next}.
+
+Because this is the service that will be publicly exposed, open up the \textbf{Port Map} options, which are right above the service links. Pick some random port number (like 1234) as the external port, and set the private container port to \textbf{9001}.
+
+Finally, we have to ensure that the public-facing service only runs on the \textbf{load-balancer} host---none of the other hosts are public. To do this, click the \textbf{Scheduling} tab. Click \textbf{Run all containers on a specific host}, choose \textbf{load-balancer} from the dropdown, and hit \textbf{Create}.
+
+\section*{Transforming an image}
+
+If everything is set up correctly, you should be able to check out \url{http://demo.stellj.es:1234} (substituting whatever port you chose) and get a \textbf{Hello world!} back.
+
+To actually send an image, run the following from a console somewhere:
+
+\begin{verbatim}
+    $ curl --request POST --data-binary "@input.png" http://demo.stellj.es:1234 > output.png
+\end{verbatim}
+
+Make sure to swap out \texttt{input.png} with an input file that actually exists. Note that the server only supports PNG files---fixing that is left as an exercise for the reader.

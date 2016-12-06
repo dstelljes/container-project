@@ -10,7 +10,7 @@
 
 \vspace{2em}
 
-As we discussed briefly in the presentation, there two main types of containers: \textit{system containers}, which act like complete isolated operating systems, and \textit{application containers}, which focus on packaging single applications.
+As we discussed briefly in the presentation, there are two main types of containers: \textit{system containers}, which are essentially lightweight virtual machines, and \textit{application containers}, which focus on packaging single applications.
 
 LXD is a container engine that manages system containers. Working with an LXD container is a lot like working with a virtual machine (or, for that matter, a physical one) in that it acts like a completely isolated guest operating system.
 
@@ -22,26 +22,61 @@ As it turns out, Docker will inside of LXD. There are some actual reasons why th
 
 \section*{Getting started}
 
-The only thing you'll need for this exercise is a machine with LXD on it. Installing LXD is sort of a pain (slightly less so if you're using Ubuntu or Gentoo), but you can use LXD online:
+For this exercise, you'll need a machine with LXD on it. We're running four cloud servers with LXD on them, so all you have to do is connect to one:
 
 \begin{enumerate}
-  \item Point a web browser at \url{https://linuxcontainers.org/lxd/try-it/}.
-  \item Acknowledge that you can't/won't do anything terrible.
-  \item Observe that you're now root inside your very own LXD-enabled system.
+  \item In a terminal, type \texttt{ssh clontarf@lxd-1.stellj.es}. You can also use \texttt{lxd-2}, \texttt{lxd-3}, or \texttt{lxd-4}.
+  \item We'll provide the password in the presentation.
+  \item You have root privileges on the machine.
 \end{enumerate}
 
-Fun fact: The ``try it online'' system is actually an LXD container running on top of a virtual machine. We're already a few levels deep!
+Fun fact: The system you're in is a virtual machine, so you're already one level deep!
 
 \section*{Duck, meet turkey}
 
-Start out by launching a new system container:
+Start out by launching a new container:
 
 \begin{verbatim}
-    # lxc launch ubuntu:16.04 first-container -p default -p docker
+    $ lxc launch ubuntu turkey -c security.nesting=true -c security.privileged=true
 \end{verbatim}
 
-There are a few things going on here. First, \texttt{lxc}---what's up with that? LXD is actually just a friendly interface to an older container management tool called LXC, and the name of the command reflects that. Pass judgment as you will.
+Barring any problems, you now have a container based on the \texttt{ubuntu} (Ubuntu Linux) image named \texttt{turkey}. As you may have guessed, \texttt{-c security.nesting=true} makes it possible for nesting (or Deen-ing, if you prefer) to happen.
 
-\texttt{launch} does exactly what you'd think; it launches a container. In this case, you're launching a container based on the \texttt{ubuntu:16.04} (Ubuntu 16.04) image, and you're naming it \texttt{first-container}.
+Note also the \texttt{-c security.privileged=true}---that gives the container elevated privileges, which is a gross workaround for an issue that happens with nested LXDs. The neat thing is that the container is still unprivileged with respect to the host; it only has elevated privileges within \texttt{turkey}.
 
-The \texttt{-p} options apply \textit{profiles} to the container. \texttt{-p default} sets up some networking configuration and \texttt{-p docker} makes it possible for nesting to happen.
+Use \texttt{lxc exec} to get into the container:
+
+\begin{verbatim}
+    $ lxc exec turkey -- bash
+\end{verbatim}
+
+If all goes well, you should see that your prompt is now \texttt{root@turkey}. The Ubuntu image ships with LXD installed, so you can simply initialize it and then repeat the process to add another layer:
+
+\begin{verbatim}
+    # lxd init --auto
+    # lxc launch ubuntu duck -c security.nesting=true -c security.privileged=true
+\end{verbatim}
+
+\section*{We have to go deeper}
+
+So we've seen LXD inside of LXD, but what about Docker inside of LXD? Use \texttt{apt} to install Docker and find out:
+
+\begin{verbatim}
+    # apt update
+    # apt install -y docker.io
+\end{verbatim}
+
+And now, you should be able to interact with Docker:
+
+\begin{verbatim}
+    # docker info
+    Containers: 0
+     Running: 0
+    ...
+\end{verbatim}
+
+Just for kicks, put a whale inside of the turkey:
+
+\begin{verbatim}
+    # docker run docker/whalesay cowsay sup
+\end{verbatim}
