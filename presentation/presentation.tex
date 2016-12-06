@@ -16,15 +16,15 @@
 \begin{document}
   \maketitle
   \begin{frame}{Virtual Machines vs. Containers}
-      \alert{Virtual machines} act as hardware virtualization and run a full operating system as a guest.
+      \alert{Virtual machines} virtualize hardware and run a full operating system as a guest.
       \begin{itemize}
-          \item Can be several gigabytes in size and take awhile to start up.
+          \item Can be several gigabytes in size and take awhile to spin up.
       \end{itemize}
       \vspace{10px}
 
-      \alert{Containers} act as operating system virtualization where they share the kernel of the host machine.
+      \alert{Containers} virtualize an operating system where containers share the kernel of the host machine.
       \begin{itemize}
-          \item Can be tens of megabytes and start up instantly.
+          \item Can be tens of megabytes and spin up instantly.
       \end{itemize}
 
   \end{frame}
@@ -53,7 +53,7 @@
   \begin{frame}{Making Containers}
       A few terms that need to be defined:
     \begin{itemize}
-        \item \alert{Images}: These are read-only templates that define and structure containers. These are used when creating a container. An example image could be a Fedora operating system running a Node.js application.
+        \item \alert{Images}: These are read-only templates that define and structure containers. These are used when creating a container. For example, we could have a Fedora server running a Node.js application as an image.
         \item \alert{Registries}: These are public or private repositories that allow storage and distrubution of container images.
     \end{itemize}
 
@@ -64,7 +64,7 @@
   \begin{frame}{Container Environments: For Systems}
       Containers are typically used in one of two ways: to act as a full operating system or to run a single application. There are container environments made for each philosophy. \newline
 
-      The following systems are meant to be used as a whole operating system: \newline
+      The following systems are meant to provide containers to be used as a whole operating system:
       \begin{itemize}
           \setlength\itemsep{1.6em}
           \item \alert{LXC} (\textbf{L}inu\textbf{X} \textbf{C}ontainers): One of the original container environments. Low-level, bare-bones container engine. Over eight years old.
@@ -73,10 +73,10 @@
   \end{frame}
 
   \begin{frame}{Container Environments: For Applications}
-      The following systems are meant to host single applications: \newline
+      The following systems are meant to provide containers to host single applications: \newline
       \begin{itemize}
           \setlength\itemsep{1.6em}
-          \item \alert{Docker}: A platform for developing, shipping, and deploying single applications. Easy to setup and use. Currently the most common container environment.
+          \item \alert{Docker}: A platform for developing, shipping, and deploying single applications in isolated environments. Easy to setup and use. Currently the most common container environment.
           \item \alert{rkt}: The newest, cutting-edge container environment. Designed to address security issues with Docker and to standardize specifications for application containers.
       \end{itemize}
   \end{frame}
@@ -92,10 +92,10 @@
   \end{frame}
 
   \begin{frame}{Course Suggestions}
-      Containers could be beneficial in multiple courses at UMM:
+      Containers can be beneficial in multiple courses at UMM:
       \begin{itemize}
-          \item \alert{Computing Systems: Practicum} (3403) could use LXD containers to blow up the world and mess around with networking without exposing the dungeon to the outside.
-          \item \alert{Software Design} (3601) could use Docker containers for deployment of their web server and database. This allows for a live, isolated production environment.
+          \item \alert{Computing Systems: Practicum} (3403) could use LXD containers to blow up the world and mess around with networking without exposing the dungeon to security vulnerabilities.
+          \item \alert{Software Design} (3601) could use Docker containers for deployment of their web server and database. This allows for a live, isolated production environment and simplified customer demos.
       \end{itemize}
   \end{frame}
 
@@ -110,9 +110,10 @@
       We have a few demos of different software container applications to play around with: \newline
       \begin{itemize}
         \setlength\itemsep{1.6em}
-        \item Dies Irae: Blow up the world challenge; example of LXD containers.
+        \item Dies Irae: Blow up the world inside of an LXD container.
+        \item Stack Trace: Spin up your own wordpress blog in a Rancher stack.
         \item Paula Deen's Thanksgiving: Nesting Docker inside of LXD.
-        \item Down The Pipeline: Manipulating images by Docker and Rancher.
+        \item Pipe Dream: Manipulating images through a chain of Docker containers.
       \end{itemize}
 
   \end{frame}
