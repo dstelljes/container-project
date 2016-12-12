@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](Introduction.md)
-  * [Virtualization](Introduction/Virtualization.md)
-  * [History](Introduction/History.md)
+* [Virtualization](Virtualization.md)
+* [Use Cases](Use-Cases.md)
 
 ## Container Environments
 * [chroot](Container-Environments/chroot/Introduction.md)
@@ -18,10 +18,7 @@
   * [Quick Start](Container-Environments/LXD/Quick-Start.md)
 * [rkt](Container-Environments/rkt/Introduction.md)
 
-## Cookbook
-* [Web Application Testing](Cookbook/Web-Application-Testing.md)
-
-## To be reorganized
+## Deploying and Scaling
 * [Distribution](Distribution/Introduction.md)
   * [Stacks](Distribution/Stacks.md)
   * [Clusters](Distribution/Clusters.md)
@@ -29,4 +26,6 @@
   * [Docker Swarm](Management-Systems/Swarm/Introduction.md)
   * [Shipyard](Management-Systems/Shipyard/Introduction.md)
   * [Rancher](Management-Systems/Rancher/Introduction.md)
-* [Usages](Usages/Introduction.md)
+
+## Cookbook
+* [Web Application Testing](Cookbook/Web-Application-Testing.md)

@@ -1,6 +1,6 @@
-# Container Usages
+# Container Use Cases
 
-Whether it be Docker, LXD, rkt, or a custom software container solution, containers are useful in a variety of educational and real-world settings.
+Containers are useful in a variety of educational and real-world settings.
 
 ## Web applications
 
